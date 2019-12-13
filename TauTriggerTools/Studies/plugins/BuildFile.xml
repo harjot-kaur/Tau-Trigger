@@ -1,0 +1,5 @@
+<use name="DataFormats/PatCandidates"/>
+<use name="FWCore/Framework"/>
+<use name="TauTriggerTools/Common"/>
+
+<flags EDM_PLUGIN="1"/>
