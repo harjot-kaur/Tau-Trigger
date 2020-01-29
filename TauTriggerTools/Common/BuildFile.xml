@@ -1,4 +1,0 @@
-<use name="root"/>
-<use name="boost"/>
-<use name="DataFormats/HepMCCandidate"/>
-<export> <lib name="1"/> </export>
