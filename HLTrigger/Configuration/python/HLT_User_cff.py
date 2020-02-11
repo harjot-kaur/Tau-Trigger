@@ -13971,36 +13971,20 @@ fragment.photonPtSumOutsideSignalConedR03 = pfRecoTauDiscriminationByIsolation.c
 
 
 fragment.mvaTauProducer = cms.EDProducer("PFRecoTauDiscriminationByMVAIsolationRun2",
-#    electrons                       = cms.InputTag('hltEgammaCandidates'), #boh!
-#    muons                           = cms.InputTag('hltMuonsReg'),
-#    taus                            = cms.InputTag("hltHpsPFTauProducerReg"),
-#    pfcands                         = cms.InputTag('hltParticleFlowReg'),
-#    vertices                        = cms.InputTag('hltPixelVertices'),
-#    rho                             = cms.InputTag('hltFixedGridRhoFastjetAll'),
-    #graph_file                      = cms.vstring(file_names),
+
     loadMVAfromDB                   = cms.bool(True),
-    mvaName                         = cms.string("RecoTauTag_tauIdMVAIsoDBoldDMwLT2017v2"),
-    mvaOpt                          = cms.string("DBoldDMwLTwGJ"),
-#    mem_mapped                      = cms.bool(True),
-#    version                         = cms.uint32(2),
- #   debug_level                     = cms.int32(0),
-  #  disable_dxy_pca                 = cms.bool(True),
+#    mvaName                         = cms.string("RecoTauTag_tauIdMVAIsoDBoldDMwLT2017v2"),
+#    mvaOpt                          = cms.string("DBoldDMwLTwGJ"),
+    PFTauProducer = cms.InputTag('pfTauProducer'),
+    mvaName = cms.string("tauIdMVAnewDMwoLT"),
+    mvaOpt = cms.string("newDMwoLT"),
     srcTauTransverseImpactParameters= cms.InputTag('srcTauTransverseImpactParameters'),
     srcChargedIsoPtSum              = cms.InputTag('srcChargedIsoPtSum'),
     srcNeutralIsoPtSum              = cms.InputTag('srcNeutralIsoPtSum'),
     srcPUcorrPtSum                  = cms.InputTag('srcPUcorrPtSum'),
     srcPhotonPtSumOutsideSignalCone = cms.InputTag('srcPhotonPtSumOutsideSignalCone'),
     srcFootprintCorrection          = cms.InputTag('srcFootprintCorrection'),
-#    pfTauTransverseImpactParameters = cms.InputTag('hpsPFTauTransverseImpactParameters'),
-#    chargedIsoPtSum                 = cms.InputTag('chargedIsoPtSum'),
- #   chargedIsoPtSumdR03             = cms.InputTag('chargedIsoPtSumdR03'),
- #   neutralIsoPtSum                 = cms.InputTag('neutralIsoPtSum'),
- #   neutralIsoPtSumdR03             = cms.InputTag('neutralIsoPtSumdR03'),
- #   puCorrPtSum                     = cms.InputTag('puCorrPtSum'),
- #   footprintCorrection             = cms.InputTag('footprintCorrection'),
- #   neutralIsoPtSumWeight           = cms.InputTag('neutralIsoPtSumWeight'),
- #   neutralIsoPtSumWeightdR03       = cms.InputTag('neutralIsoPtSumWeightdR03'),
- #   photonPtSumOutsideSignalCone    = cms.InputTag('photonPtSumOutsideSignalCone')
+
 )
 tauJetdR = 0.2
 objectdR = 0.5
@@ -14602,32 +14586,7 @@ fragment.hltHpsPFTauTightRelativeChargedIsolationDiscriminatorReg = cms.EDProduc
       )
     )
 )
-# fragment.dummyFilter = cms.EDFilter( "DummyFilter",
-#     VSe = cms.InputTag('deepTauProducer','VSe','HLT'),
-#     VSmu = cms.InputTag('deepTauProducer','VSmu','HLT'),
-#     VSjet = cms.InputTag('deepTauProducer','VSjet','HLT'),
-#     looseIsoAbs = cms.InputTag('hltHpsPFTauLooseAbsoluteChargedIsolationDiscriminator','','HLT'),
-#     looseIsoRel = cms.InputTag('hltHpsPFTauLooseRelativeChargedIsolationDiscriminator','','HLT'),
-#     mediumIsoAbs = cms.InputTag('hltHpsPFTauMediumAbsoluteChargedIsolationDiscriminatorReg','','HLT'),
-#     mediumIsoRel = cms.InputTag('hltHpsPFTauMediumRelativeChargedIsolationDiscriminatorReg','','HLT'),
-#     tightIsoAbs = cms.InputTag('hltHpsPFTauTightAbsoluteChargedIsolationDiscriminatorReg','','HLT'),
-#     tightIsoRel = cms.InputTag('hltHpsPFTauTightRelativeChargedIsolationDiscriminatorReg','','HLT'),
-#     genParticles = cms.InputTag('genParticles'),
-#     taus = cms.InputTag('hltHpsPFTauProducerReg')
-# )
-#fragment.dummyFilter = cms.EDFilter( "DummyFilter",
-#    VSe = cms.InputTag('mvaTauProducer','VSe'),
-#    VSmu = cms.InputTag('mvaTauProducer','VSmu'),
-#    VSjet = cms.InputTag('mvaTauProducer','VSjet'),
-#    looseIsoAbs = cms.InputTag('hltHpsPFTauLooseAbsoluteChargedIsolationDiscriminator'),
-#    looseIsoRel = cms.InputTag('hltHpsPFTauLooseRelativeChargedIsolationDiscriminator'),
-#    mediumIsoAbs = cms.InputTag('hltHpsPFTauMediumAbsoluteChargedIsolationDiscriminatorReg'),
-#    mediumIsoRel = cms.InputTag('hltHpsPFTauMediumRelativeChargedIsolationDiscriminatorReg'),
-#    tightIsoAbs = cms.InputTag('hltHpsPFTauTightAbsoluteChargedIsolationDiscriminatorReg'),
-#    tightIsoRel = cms.InputTag('hltHpsPFTauTightRelativeChargedIsolationDiscriminatorReg'),
-#    genParticles = cms.InputTag('genParticles'),
-#    taus = cms.InputTag('hltHpsPFTauProducerReg')
-#)
+
 fragment.hltHpsPFTauMediumAbsOrRelChargedIsolationDiscriminatorReg = cms.EDProducer( "PFTauDiscriminatorLogicalAndProducer",
     PassValue = cms.double( 1.0 ),
     Prediscriminants = cms.PSet(
