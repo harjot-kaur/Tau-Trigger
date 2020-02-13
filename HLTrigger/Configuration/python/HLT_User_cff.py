@@ -13971,13 +13971,13 @@ fragment.photonPtSumOutsideSignalConedR03 = pfRecoTauDiscriminationByIsolation.c
 
 
 fragment.mvaTauProducer = cms.EDProducer("PFRecoTauDiscriminationByMVAIsolationRun2",
-
-    loadMVAfromDB                   = cms.bool(True),
+    PFTauProducer = cms.InputTag('hltHpsPFTauProducerReg'),
     Prediscriminants = requireLeadTrack,
+    loadMVAfromDB                   = cms.bool(True),
     mvaName                         = cms.string("RecoTauTag_tauIdMVAIsoDBoldDMwLT2017v2"),
     mvaOpt                          = cms.string("DBoldDMwLTwGJ"),
 #    PFTauProducer = cms.InputTag('pfTauProducer'),
-    PFTauProducer = cms.InputTag('hltHpsPFTauProducerReg'),
+#    PFTauProducer = cms.InputTag('hltHpsPFTauProducerReg'),
 #    mvaName = cms.string("tauIdMVAnewDMwoLT"),
 #    mvaOpt = cms.string("newDMwoLT"),
 #    srcTauTransverseImpactParameters= cms.InputTag('srcTauTransverseImpactParameters'),
