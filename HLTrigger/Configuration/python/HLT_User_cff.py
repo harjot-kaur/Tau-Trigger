@@ -13973,17 +13973,27 @@ fragment.photonPtSumOutsideSignalConedR03 = pfRecoTauDiscriminationByIsolation.c
 fragment.mvaTauProducer = cms.EDProducer("PFRecoTauDiscriminationByMVAIsolationRun2",
 
     loadMVAfromDB                   = cms.bool(True),
-#    mvaName                         = cms.string("RecoTauTag_tauIdMVAIsoDBoldDMwLT2017v2"),
-#    mvaOpt                          = cms.string("DBoldDMwLTwGJ"),
-    PFTauProducer = cms.InputTag('pfTauProducer'),
-    mvaName = cms.string("tauIdMVAnewDMwoLT"),
-    mvaOpt = cms.string("newDMwoLT"),
-    srcTauTransverseImpactParameters= cms.InputTag('srcTauTransverseImpactParameters'),
-    srcChargedIsoPtSum              = cms.InputTag('srcChargedIsoPtSum'),
-    srcNeutralIsoPtSum              = cms.InputTag('srcNeutralIsoPtSum'),
-    srcPUcorrPtSum                  = cms.InputTag('srcPUcorrPtSum'),
-    srcPhotonPtSumOutsideSignalCone = cms.InputTag('srcPhotonPtSumOutsideSignalCone'),
-    srcFootprintCorrection          = cms.InputTag('srcFootprintCorrection'),
+    Prediscriminants = requireLeadTrack,
+    mvaName                         = cms.string("RecoTauTag_tauIdMVAIsoDBoldDMwLT2017v2"),
+    mvaOpt                          = cms.string("DBoldDMwLTwGJ"),
+#    PFTauProducer = cms.InputTag('pfTauProducer'),
+    PFTauProducer = cms.InputTag('hltHpsPFTauProducerReg'),
+#    mvaName = cms.string("tauIdMVAnewDMwoLT"),
+#    mvaOpt = cms.string("newDMwoLT"),
+#    srcTauTransverseImpactParameters= cms.InputTag('srcTauTransverseImpactParameters'),
+#    srcChargedIsoPtSum              = cms.InputTag('srcChargedIsoPtSum'),
+#    srcNeutralIsoPtSum              = cms.InputTag('srcNeutralIsoPtSum'),
+#    srcPUcorrPtSum                  = cms.InputTag('srcPUcorrPtSum'),
+#    srcPhotonPtSumOutsideSignalCone = cms.InputTag('srcPhotonPtSumOutsideSignalCone'),
+#    srcFootprintCorrection          = cms.InputTag('srcFootprintCorrection'),
+    srcTauTransverseImpactParameters = cms.InputTag(''),
+
+    srcChargedIsoPtSum = cms.InputTag('chargedIsoPtSum'),
+    srcNeutralIsoPtSum = cms.InputTag('neutralIsoPtSum'),
+    srcPUcorrPtSum = cms.InputTag('puCorrPtSum'),
+    srcPhotonPtSumOutsideSignalCone = cms.InputTag('photonPtSumOutsideSignalCone'),
+    srcFootprintCorrection = cms.InputTag('footprintCorrection'),
+    verbosity = cms.int32(0)
 
 )
 tauJetdR = 0.2
